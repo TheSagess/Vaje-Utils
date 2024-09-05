@@ -3,9 +3,9 @@ import { data } from "../util/data";
 import { registerWhen } from "../../BloomCore/utils/Utils";
 
 // Define constants
-const TIMER_DELAY = 1500; // 1.5 seconds
+const TIMER_DELAY = 1250; // 1.5 seconds
 const BEEP_DURATION = 3000; // 3 seconds
-const TIMER_DISPLAY_DURATION = 1500; // 1.5 seconds
+const TIMER_DISPLAY_DURATION = 1250; // 1.5 seconds
 
 let armorCheckTime = 0;
 let beeping = false;

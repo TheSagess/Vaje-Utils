@@ -11,7 +11,6 @@ import { Color } from 'Vigilance';  // Adjust the path if necessary
 
 
 import "./features/AtLocationMessages"
-import "./features/AutoKick"
 import "./features/AutoOpenPotionBag"
 import "./features/BloodCampHelper"
 import "./features/BloodRushSplits"
@@ -26,7 +25,6 @@ import "./features/GoldorTickTimer"
 import "./features/HidePlayersInP3"
 import "./features/InvincibilityMessages"
 import "./features/P3StartTimer"
-import "./features/PictureOnScreen"
 import "./features/PredevTimer"
 import "./features/ReaperDisplay"
 import "./features/RelicSpawnTimer"

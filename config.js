@@ -2,14 +2,16 @@ import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchPrope
 
 @Vigilant("VajeUtils", "§5VajeUtils",  {
     getCategoryComparator: () => (a, b) => {
-        const categories = ['General', 'Dungeons', 'F7/M7', 'Location Messages'];
+        // Define the desired order of categories
+        const categories = ['General', 'Blaze', 'Dungeons', 'F7/M7', 'Location Messages'];
+        // Compare categories based on their index in the array
         return categories.indexOf(a.name) - categories.indexOf(b.name);
     }
 })
 
+
 class Settings {
 
-    pictureOnScreenGui = new Gui()
     p3StartTimerGui = new Gui()
     goldorTickTimerGui = new Gui()
     dungeonWarpCooldownGui = new Gui()
@@ -23,32 +25,7 @@ class Settings {
     GENERAL
     */
 
-    @SwitchProperty({
-        name: "Auto Kick Valley",
-        description: "Automatically kicks Vedzel when he joins the party",
-        category: "General",
-        subcategory: "General"
-    })
-    kickValley = false;
 
-    @SwitchProperty({
-        name: "Picture on Screen",
-        description: "Puts a picture on your screen\nName it [pictureOnScreen.png] and put it in the [Valley Addons/assets] folder",
-        category: "General",
-        subcategory: "Picture on Screen"
-    })
-    pictureOnScreen = false
-
-    @ButtonProperty({
-        name: "Move Picture on Screen",
-        description: "Moves the picture on your screen",
-        category: "General",
-        subcategory: "Picture on Screen",
-        placeholder: "Move"
-    })
-    MovePictureOnScreenGui() {
-        this.pictureOnScreenGui.open()
-    }
 
     @SwitchProperty({
         name: "Cooldown Kick Message",
@@ -534,7 +511,6 @@ class Settings {
 
         this.setCategoryDescription("General", commands)
 
-        this.addDependency("Move Picture on Screen", "Picture on Screen")
         this.addDependency("Cooldown Kick Text", "Cooldown Kick Message")
         this.addDependency("Move Reaper Display", "Reaper Display")
         this.addDependency("Move Dungeon Warp Cooldown", "Dungeon Warp Cooldown")
