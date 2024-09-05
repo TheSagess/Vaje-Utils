@@ -11,6 +11,6 @@ Vaje Utils is a Chat Triggers Module which uses vigiance GUI, framework and has 
 
 ## Patreon: https://vajeservices.xyz/patreon
 
-## Buy Me A coffe: vajeservices.xyz/buymeacoffe
+## Buy Me A coffe: https://vajeservices.xyz/buymeacoffe
 
 ## Vaje Discord: https://vajeservices.xyz/discord
