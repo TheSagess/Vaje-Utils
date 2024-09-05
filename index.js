@@ -6,11 +6,12 @@ import { rotate } from "./commands/Rotate"
 import { VajeCommand } from "./commands/VajeCommand"
 import Settings from './config';  // Adjust path as necessary
 import { mpCommand, pbCommand, lvlCommand } from "./features/CheckStats"
+import { FiyrquoteCommand } from './commands/fiyrquote.js';
 import { Color } from 'Vigilance';  // Adjust the path if necessary
 
 
 import "./features/AtLocationMessages"
-import "./features/AutoKickValley"
+import "./features/AutoKick"
 import "./features/AutoOpenPotionBag"
 import "./features/BloodCampHelper"
 import "./features/BloodRushSplits"
@@ -32,6 +33,7 @@ import "./features/RelicSpawnTimer"
 import "./features/RelicTimer"
 import "./features/Reminder"
 import "./features/TerminalTimestamps"
+import "./features/blaze1taphellper.js"
 // Correcting Sound class instances with consistent capitalization
 const JanneroMeowSound = new Sound({ source: "JanneroMeow.ogg" });
 const JanneroUwUSound = new Sound({ source: "JanneroUwU.ogg" });
@@ -52,5 +54,6 @@ phonelin.registerKeyPress(() => phonelingSound.play());
 // To read/write config values, simply read/write them like normal JS values
 Settings.myColor = Color.RED;  // Correct use of Color
 console.log(Settings.textInput);  // Check if textInput is defined
+
 
 
