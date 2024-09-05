@@ -499,6 +499,12 @@ class Settings {
         subcategory: "Location Messages"
     })
     tunnelCoord = false;
+    @SwitchProperty({
+        name: "Blaze 1 tap Helper",
+        category: "Blaze",
+        subcategory: "1 tap"
+    })
+    blaze1tap = false;
 
     constructor() {
         this.initialize(this);
@@ -509,6 +515,7 @@ class Settings {
             "",
             "&fCommands:",
             "&7/mp &d[name]&7 - shows &d[name]&7's magical power.",
+            "&7/fiyrequote &d[number] - shows a fiyr quote",
             "&7/pb &d[name]&7 - shows &d[name]&7's m7 pb.",
             "&7/level &d[name]&7 - shows &d[name]&7's skyblock level.",
             "&7/remind &d[msg]&7 - sets a reminder that shows &d[msg]&7 on your screen at the end of a dungeon or kuudra run",
