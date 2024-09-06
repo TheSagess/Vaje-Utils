@@ -32,26 +32,23 @@ import "./features/RelicTimer"
 import "./features/Reminder"
 import "./features/TerminalTimestamps"
 import "./features/blaze1taphellper.js"
-// Correcting Sound class instances with consistent capitalization
-const JanneroMeowSound = new Sound({ source: "JanneroMeow.ogg" });
-const JanneroUwUSound = new Sound({ source: "JanneroUwU.ogg" });
-const phonelingSound = new Sound({ source: "phoneling.ogg" });
-
-// Correcting KeyBind instances with consistent capitalization
-const Meow = new KeyBind("Meow", 0, "Vaje Utils");
-const JanneroMeow = new KeyBind("Jannero Meow", 0, "Vaje Utils");
-const JanneroUwU = new KeyBind("Jannero UwU", 0, "Vaje Utils");
-const phonelin = new KeyBind("Phone Linging", 0, "Vaje Utils");
-
-// Register key press events
-Meow.registerKeyPress(() => World.playSound("mob.cat.meow", 1, 1));
-JanneroMeow.registerKeyPress(() => JanneroMeowSound.play());
-JanneroUwU.registerKeyPress(() => JanneroUwUSound.play());
-phonelin.registerKeyPress(() => phonelingSound.play());
+import "./features/secrectwaypoint.js"
 
 // To read/write config values, simply read/write them like normal JS values
 Settings.myColor = Color.RED;  // Correct use of Color
 console.log(Settings.textInput);  // Check if textInput is defined
 
+const JanneroMeowSound = new Sound({source: "JanneroMeow.ogg"})
+const JanneroUwUSound = new Sound({source: "JanneroUwU.ogg"})
+const phonesound = new Sound({source: "phoneling.ogg"})
+const Meow = new KeyBind("Meow", 0, "Vaje Utils")
+const JanneroMeow = new KeyBind("Jannero Meow", 0, "Vaje Utils")
+const JanneroUwU = new KeyBind("Jannero UwU", 0, "Vaje Utils")
+const YourPhoneIsLinging = new KeyBind("YOUR PHONE IS LINGING", 0, "Vaje Utils")
 
+Meow.registerKeyPress(() => World.playSound("mob.cat.meow", 1, 1))
+
+JanneroMeow.registerKeyPress(() => JanneroMeowSound.play())
+JanneroUwU.registerKeyPress(() => JanneroUwUSound.play())
+YourPhoneIsLinging.registerKeyPress(() => phonesound.play())
 
