@@ -152,6 +152,14 @@ class Settings {
         subcategory: "General"
     })
     hideCampSplitsInBoss = false
+    @SwitchProperty({
+        name: "Secret wayponts [scuffed like BM but works]",
+        description: "Shows a green box around secrects in the room your currently in",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+    secrectwaypoint = false
+
 
     @ButtonProperty({
         name: "Move Blood Camp Splits",

@@ -14,8 +14,8 @@ let messageStartTime = 0;
 let wasWearingTarantula = false;
 
 // Timer text for displaying on screen
-let timerText = new Text("").setScale(3).setShadow(true).setAlign("CENTER").setColor(Renderer.RED);
-let messageText = new Text("").setScale(3).setShadow(true).setAlign("CENTER").setColor(Renderer.RED);
+let timerText = new Text("").setScale(3).setShadow(true).setAlign("CENTER").setColor(Renderer.AQUA);
+let messageText = new Text("").setScale(3).setShadow(true).setAlign("CENTER").setColor(Renderer.AQUA);
 
 // Function to check if player is wearing full Tarantula armor
 function isWearingFullTarantula() {
