@@ -2,7 +2,7 @@
     "name": "VajeUtils",
     "creator": "donskyblock",
     "description": "A useful QOL Module For Hypixel Skyblock",
-    "version": "1.6",
+    "version": "1.6.0",
     "entry": "index.js",
     "requires": [
         "requestV2",
