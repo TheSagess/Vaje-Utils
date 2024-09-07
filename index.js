@@ -33,6 +33,7 @@ import "./features/Reminder"
 import "./features/TerminalTimestamps"
 import "./features/blaze1taphellper.js"
 import "./features/secrectwaypoint.js"
+import "./features/gameuptimefeatures.js"
 
 // To read/write config values, simply read/write them like normal JS values
 Settings.myColor = Color.RED;  // Correct use of Color

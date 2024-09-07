@@ -3,7 +3,7 @@ import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchPrope
 @Vigilant("VajeUtils", "§5VajeUtils",  {
     getCategoryComparator: () => (a, b) => {
         // Define the desired order of categories
-        const categories = ['General', 'Blaze', 'Dungeons', 'F7/M7', 'Location Messages'];
+        const categories = ['General', 'Blaze', 'Visuals', 'Dungeons', 'F7/M7', 'Location Messages'];
         // Compare categories based on their index in the array
         return categories.indexOf(a.name) - categories.indexOf(b.name);
     }
@@ -490,6 +490,20 @@ class Settings {
         subcategory: "1 tap"
     })
     blaze1tap = false;
+    @SwitchProperty({
+        name: "Display Session Time",
+        description: "Displays your session time in the corner of your screen [unmovable if on, bottom right corner]",
+        category: "Visuals",
+        subcategory: "Session"
+    })
+    sessiontimer = false;
+    @SwitchProperty({
+        name: "Show Minecraft Name On screen",
+        description: "Shows your minecraft name on your stream preety self explantory",
+        category: "Visuals",
+        subcategory: "Session"
+    })
+    minecraftname = false
 
     constructor() {
         this.initialize(this);
