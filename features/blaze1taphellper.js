@@ -71,6 +71,8 @@ function handleTimer() {
 register("tick", () => {
     const currentlyWearingTarantula = isWearingFullTarantula();
 
+    if (!config.blaze1tap) return
+
     if (currentlyWearingTarantula && !wasWearingTarantula) {
         // Player just started wearing full Tarantula armor
         startTimer();

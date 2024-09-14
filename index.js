@@ -8,7 +8,7 @@ import Settings from './config';  // Adjust path as necessary
 import { mpCommand, pbCommand, lvlCommand } from "./features/CheckStats"
 import { FiyrquoteCommand } from './commands/fiyrquote.js';
 import { Color } from 'Vigilance';  // Adjust the path if necessary
-
+import request from "RequestV2"
 
 import "./features/AtLocationMessages"
 import "./features/AutoOpenPotionBag"
@@ -34,6 +34,8 @@ import "./features/TerminalTimestamps"
 import "./features/blaze1taphellper.js"
 import "./features/secrectwaypoint.js"
 import "./features/gameuptimefeatures.js"
+import "./features/pyroproc.js"
+import "./features/vajelink.js"
 
 // To read/write config values, simply read/write them like normal JS values
 Settings.myColor = Color.RED;  // Correct use of Color
@@ -52,4 +54,3 @@ Meow.registerKeyPress(() => World.playSound("mob.cat.meow", 1, 1))
 JanneroMeow.registerKeyPress(() => JanneroMeowSound.play())
 JanneroUwU.registerKeyPress(() => JanneroUwUSound.play())
 YourPhoneIsLinging.registerKeyPress(() => phonesound.play())
-

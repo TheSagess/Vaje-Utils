@@ -1,6 +1,6 @@
 import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchProperty, Color, @SelectorProperty } from '../Vigilance';
 
-@Vigilant("VajeUtils", "§5VajeUtils",  {
+@Vigilant("Vaje-Utils", "§5VajeUtils",  {
     getCategoryComparator: () => (a, b) => {
         // Define the desired order of categories
         const categories = ['General', 'Blaze', 'Visuals', 'Dungeons', 'F7/M7', 'Location Messages'];
@@ -27,6 +27,13 @@ class Settings {
 
 
 
+    @SwitchProperty({
+        name: "Vaje Web Server Communication",
+        description: "This allows vaje to communicate with my servers, to allow some features to work if not, some new features may not work",
+        category: "General",
+        subcategory: "API"
+    })
+    vajeweb = false;
     @SwitchProperty({
         name: "Cooldown Kick Message",
         description: "Sends a message to the party when you are cooldown kicked",
@@ -490,6 +497,13 @@ class Settings {
         subcategory: "1 tap"
     })
     blaze1tap = false;
+    @SwitchProperty({
+        name: "Burning Vengance Proc",
+        description: "It shows a timer for when the burning vengance perk will proc",
+        category: "Blaze",
+        subcategory: "QOL"
+    })
+    blazepyro = false;
     @SwitchProperty({
         name: "Display Session Time",
         description: "Displays your session time in the corner of your screen [unmovable if on, bottom right corner]",
