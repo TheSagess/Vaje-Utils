@@ -5,7 +5,7 @@ import { refillCommand } from "./commands/RefillCommand"
 import { rotate } from "./commands/Rotate"
 import { VajeCommand } from "./commands/VajeCommand"
 import Settings from './config';  // Adjust path as necessary
-import { mpCommand, pbCommand, lvlCommand } from "./features/CheckStats"
+import { mpCommand, runstillcatacommand } from "./features/CheckStats"
 import { FiyrquoteCommand } from './commands/fiyrquote.js';
 import { Color } from 'Vigilance';  // Adjust the path if necessary
 import request from "RequestV2"
@@ -36,6 +36,8 @@ import "./features/secrectwaypoint.js"
 import "./features/gameuptimefeatures.js"
 import "./features/pyroproc.js"
 import "./features/vajelink.js"
+import "./features/ragaxe.js"
+import "./features/bloodreminder.js"
 
 // To read/write config values, simply read/write them like normal JS values
 Settings.myColor = Color.RED;  // Correct use of Color

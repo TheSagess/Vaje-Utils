@@ -1,6 +1,5 @@
 import { getScoreboard, removeUnicode } from "../../BloomCore/utils/Utils"
 
-export const key = `488ca87c-df38-425f-a4bc-e3dc386c8d85`
 export const prefix = "&f[&5Vaje&f]"
 
 export function getDistance(x1, z1, x2, z2) {
@@ -28,7 +27,7 @@ export function getClass() {
     return match[1];
 }
 
-export const rooms = JSON.parse(FileLib.read("VajeUtils", "util/roomdata.json"))
+export const rooms = JSON.parse(FileLib.read("Vaje-Utils", "util/roomdata.json"))
 
 export const getRoomID = () => {
     let sb = getScoreboard(false)

@@ -38,6 +38,7 @@ function loggedout() {
 }
 
 register("gameLoad", () => {
+    if (!config.vajeweb) return
     loggedin();
 });
 

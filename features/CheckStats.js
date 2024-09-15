@@ -1,5 +1,5 @@
 import request from "RequestV2"
-import { prefix, key } from "../util/util"
+import {prefix} from "../util/util"
 import config from "../config"
 
 export const mpCommand = register("command", ...args => {
@@ -10,128 +10,60 @@ export const mpCommand = register("command", ...args => {
     }
 }).setName("mp")
 
-export const pbCommand = register("command", ...args => {
-    if (!args[0]) {
-        getPB(Player.getName());
-    } else {
-        getPB(args[0]);
-    }
-}).setName("pb")
-
-export const lvlCommand = register("command", ...args => {
-    if (!args[0]) {
-        getLevel(Player.getName());
-    } else {
-        getLevel(args[0]);
-    }
-}).setName("level").setAliases(["lvl"])
-
 register("chat", (user) => {
     if (config.showMP) getMP(user)
-    if (config.showPB) getPB(user)
-    if (config.showLVL) getLevel(user)
 }).setCriteria(/Party Finder > (\w+) joined the dungeon group! .+/)
 
 function getMP(name) {
-    request(`https://api.mojang.com/users/profiles/minecraft/${name}`).then((data) => {
-        let fixedName = JSON.parse(data).name;
-        let uuid = JSON.parse(data).id
-        request(`https://api.hypixel.net/skyblock/profiles?key=${key}&uuid=${uuid}`).then((profileData) => {
-            let text = JSON.parse(profileData);
-            let selectedProfileIndex = -1;
-            for (let i = 0; i < text.profiles.length; ++i) {
-                if (text.profiles[i].selected == true) {
-                    selectedProfileIndex = i;
-                    break;
-                }
-            }
-            if (selectedProfileIndex == -1) {
-                return ChatLib.chat(prefix + " &cFailed to get Skyblock Profile!");
+    request(`https://vajeservices.xyz/api/mp/${name}`).then((data) => {
+        try {
+            let response = JSON.parse(data);
+            let mp = response.magical_power;
+
+            if (mp === undefined) {
+                return ChatLib.chat(prefix + " &cFailed to get Magical Power!");
             }
 
-            let mp = text.profiles[selectedProfileIndex].members[uuid].accessory_bag_storage.highest_magical_power;
-
-            ChatLib.chat(`${prefix} &e${fixedName}&a's magical power is &e${mp}&a!`)
-        })
-    })
+            ChatLib.chat(`${prefix} &e${name}&a's magical power is &e${mp}&a!`);
+        } catch (e) {
+            ChatLib.chat(prefix + " &cError fetching magical power.");
+        }
+    }).catch((err) => {
+        ChatLib.chat(prefix + " &cRequest failed: " + err);
+    });
 }
 
-function getPB(name) {
-    let pb
-    request(`https://api.mojang.com/users/profiles/minecraft/${name}`).then((data) => {
-        let fixedName = JSON.parse(data).name;
-        let uuid = JSON.parse(data).id
-        request(`https://api.hypixel.net/skyblock/profiles?key=${key}&uuid=${uuid}`).then((profileData) => {
-            let text = JSON.parse(profileData);
-            let selectedProfileIndex = -1;
-            for (let i = 0; i < text.profiles.length; ++i) {
-                if (text.profiles[i].selected == true) {
-                    selectedProfileIndex = i;
-                    break;
-                }
-            }
-            if (selectedProfileIndex == -1) {
-                return ChatLib.chat(prefix + " &cFailed to get Skyblock Profile!");
+register("chat", (user) => {
+    if (config.showMP) getMP(user)
+}).setCriteria(/Party Finder > (\w+) joined the dungeon group! .+/)
+
+function runstillcata(name, cata, floor) {
+    request(`https://vajeservices.xyz/api/runstillcata/${name}/${cata}/${floor}`).then((data) => {
+        try {
+            let response = JSON.parse(data);
+            let runsleft = response["Runs Left"];
+
+            if (runsleft === undefined) {
+                return ChatLib.chat(prefix + " &cFailed to get runs remaining!");
             }
 
-            pb = parseInt(text.profiles[selectedProfileIndex].members[uuid].dungeons.dungeon_types.master_catacombs.fastest_time_s_plus[7]);
-            if (!pb) {
-                ChatLib.chat(`${prefix} &e${fixedName} &chas not played M7 on this profile!`)
-            } else {
-                let minutes = Math.floor(pb / 60000)
-                let seconds = (pb % 60000) / 1000.0
-            
-                let formatSeconds
-                if (seconds < 10) {
-                    formatSeconds = "0" + seconds
-                } else {
-                    formatSeconds = seconds
-                }
-            
-                let formattedPB = minutes + ":" + formatSeconds
-    
-                ChatLib.chat(`${prefix} &e${fixedName}&a's pb is &e${formattedPB}&a!`)
-            }
-        })
-    })
+            // Outputting the player's Cata level and floor
+            ChatLib.chat(`${prefix} There are ${runsleft} runs left on ${floor}!`);
+        } catch (e) {
+            ChatLib.chat(prefix + " &cError fetching runs left: " + e.message);
+        }
+    }).catch((err) => {
+        ChatLib.chat(prefix + " &cRequest failed: " + err);
+    });
 }
 
-function getLevel(name) {
-    request(`https://api.mojang.com/users/profiles/minecraft/${name}`).then((data) => {
-        let fixedName = JSON.parse(data).name;
-        let uuid = JSON.parse(data).id
-        request(`https://api.hypixel.net/skyblock/profiles?key=${key}&uuid=${uuid}`).then((profileData) => {
-            let text = JSON.parse(profileData);
-            let selectedProfileIndex = -1;
-            for (let i = 0; i < text.profiles.length; ++i) {
-                if (text.profiles[i].selected == true) {
-                    selectedProfileIndex = i;
-                    break;
-                }
-            }
-            if (selectedProfileIndex == -1) {
-                return ChatLib.chat(prefix + " &cFailed to get Skyblock Profile!");
-            }
+// Register the command /rtc with {name}, {cata}, and {floor} as required arguments
+export const runstillcatacommand = register("command", (name, cata, floor) => {
+    if (!name || !cata || !floor) {
+        ChatLib.chat(prefix + " &cPlease provide a name, cata level, and floor.");
+        return;
+    }
 
-            let exp = text.profiles[selectedProfileIndex].members[uuid].leveling.experience;
-            let level = exp / 100
-            
-            let colorCode
-            if (level < 40) colorCode = "&7"
-            else if (level < 80) colorCode = "&f"
-            else if (level < 120) colorCode = "&e"
-            else if (level < 160) colorCode = "&a"
-            else if (level < 200) colorCode = "&2"
-            else if (level < 240) colorCode = "&b"
-            else if (level < 280) colorCode = "&3"
-            else if (level < 320) colorCode = "&9"
-            else if (level < 360) colorCode = "&d"
-            else if (level < 400) colorCode = "&5"
-            else if (level < 440) colorCode = "&6"
-            else if (level < 480) colorCode = "&c"
-            else colorCode = "&4"
-            
-            ChatLib.chat(`${prefix} &e${fixedName}&a's Skyblock Level is ${colorCode}${level}&a!`)
-        })
-    })
-}
+    // Run the function with the provided arguments
+    runstillcata(name, cata, floor);
+}).setName("rtc");

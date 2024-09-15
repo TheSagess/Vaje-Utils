@@ -3,7 +3,7 @@ import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchPrope
 @Vigilant("Vaje-Utils", "§5VajeUtils",  {
     getCategoryComparator: () => (a, b) => {
         // Define the desired order of categories
-        const categories = ['General', 'Blaze', 'Visuals', 'Dungeons', 'F7/M7', 'Location Messages'];
+        const categories = ['Gerneral', 'Blaze', 'Visuals', 'Dungeons', 'F7/M7', 'Location Messages', 'Required'];
         // Compare categories based on their index in the array
         return categories.indexOf(a.name) - categories.indexOf(b.name);
     }
@@ -30,10 +30,10 @@ class Settings {
     @SwitchProperty({
         name: "Vaje Web Server Communication",
         description: "This allows vaje to communicate with my servers, to allow some features to work if not, some new features may not work",
-        category: "General",
+        category: "Required",
         subcategory: "API"
     })
-    vajeweb = false;
+    vajeweb = true;
     @SwitchProperty({
         name: "Cooldown Kick Message",
         description: "Sends a message to the party when you are cooldown kicked",
@@ -69,6 +69,13 @@ class Settings {
     MoveReaperDisplayGui() {
         this.reaperDisplayGui.open()
     };
+    @SwitchProperty({
+        name: "Rag Axe Alerts",
+        description: "Shows a timer on screen, for Rag Axe",
+        category: "General",
+        subcategory: "Rag Axe"
+    })
+    ragaxealerts = true;
 
     /*
     DUNGEONS
@@ -143,7 +150,13 @@ class Settings {
         subcategory: "General"
     })
     bloodCampHelper = false
-
+    @SwitchProperty({
+        name: "Blood Camp Reminder",
+        description: "This tells you whe to come kill blood mobs , to dialogue skip ",
+        category: "Dungeons",
+        subcategory: "General"
+    })
+    bloodreminder = false
     @SwitchProperty({
         name: "Show Blood Camp Splits On Screen",
         description: "Shows watcher move timer and remaining mobs killed timer as you are blood camping",
@@ -224,22 +237,6 @@ class Settings {
         subcategory: "Party Finder"
     })
     showMP = false;
-
-    @SwitchProperty({
-        name: "Show PB",
-        description: "Shows a player's M7 PB when joining a party",
-        category: "Dungeons",
-        subcategory: "Party Finder"
-    })
-    showPB = false;
-
-    @SwitchProperty({
-        name: "Show level",
-        description: "Shows a player's skyblock level when joining a party",
-        category: "Dungeons",
-        subcategory: "Party Finder"
-    })
-    showLVL = false;
 
     /*
     F7/M7
