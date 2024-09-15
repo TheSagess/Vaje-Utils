@@ -27,7 +27,7 @@ export function getClass() {
     return match[1];
 }
 
-export const rooms = JSON.parse(FileLib.read("Vaje-Utils", "util/roomdata.json"))
+export const rooms = JSON.parse(FileLib.read("VajeUtils", "util/roomdata.json"))
 
 export const getRoomID = () => {
     let sb = getScoreboard(false)

@@ -1,6 +1,6 @@
 import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchProperty, Color, @SelectorProperty } from '../Vigilance';
 
-@Vigilant("Vaje-Utils", "§5VajeUtils",  {
+@Vigilant("VajeUtils", "§5VajeUtils",  {
     getCategoryComparator: () => (a, b) => {
         // Define the desired order of categories
         const categories = ['Gerneral', 'Blaze', 'Visuals', 'Dungeons', 'F7/M7', 'Location Messages', 'Required'];
