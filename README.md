@@ -15,3 +15,5 @@ Vaje Utils is a Chat Triggers Module which uses vigiance GUI, framework and has 
 ## Buy Me A coffe: https://vajeservices.xyz/buymeacoffe
 
 ## Vaje Discord: https://vajeservices.xyz/discord
+
+## Just an FYI if you wish to install easily please download from our installer at https://github.com/donskyblock/Vaje-installer/releases/tag/v1 if you wish to isntall manually the guide is still here
