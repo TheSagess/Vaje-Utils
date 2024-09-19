@@ -1,19 +1,13 @@
 # Vaje Utils
 
-# Features
-Blaze Helper 
-And alto more [I only mention latest and most important shit here give me a break]
+# Download
+## Download at our official download page: https://vajeservices.xyz/download
 
+# This page is soley used for a basic over view + if you want to view source + if you want to manually download of github
 
-# Info
-Vaje Utils is a Chat Triggers Module which uses vigiance GUI, framework and has used a basis within a few already done projects which I have done my work to update,
-
-# Support / Contact
-
-## Patreon: https://vajeservices.xyz/patreon
-
-## Buy Me A coffe: https://vajeservices.xyz/buymeacoffe
-
-## Vaje Discord: https://vajeservices.xyz/discord
-
-## Just an FYI if you wish to install easily please download from our installer at https://github.com/donskyblock/Vaje-installer/releases/tag/v1 if you wish to isntall manually the guide is still here
+## Support me:
++ Patreon : https://vajeservices.xyz/patreon
++ Buy me A coffe: https://vajeservices.xyz/buymeacoffe
++ Join my discord: https://vajeservices.xyz/discord
++ Donate to me on stripe https://buy.stripe.com/14k8xS7Dg7jq2Oc7sw
+## If you support me through any of these ways it greatly appreciated :)
