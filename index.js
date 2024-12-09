@@ -5,10 +5,11 @@ import { refillCommand } from "./commands/RefillCommand"
 import { rotate } from "./commands/Rotate"
 import { VajeCommand } from "./commands/VajeCommand"
 import Settings from './config';  // Adjust path as necessary
-import { mpCommand, runstillcatacommand } from "./features/CheckStats"
+import { mpCommand, runstillcatacommand, slayerCommand } from "./features/CheckStats"
 import { FiyrquoteCommand } from './commands/fiyrquote.js';
 import { Color } from 'Vigilance';  // Adjust the path if necessary
 import request from "RequestV2"
+
 
 import "./features/AtLocationMessages"
 import "./features/AutoOpenPotionBag"

@@ -2,7 +2,7 @@ import config from "../config";
 import request from "RequestV2";
 
 function loggedin() {
-    request('https://vajeservices.xyz/stats/onload', {
+    request('https://api.vajeservices.xyz/stats/onload', {
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -20,7 +20,7 @@ function loggedin() {
 }
 
 function loggedout() {
-    request('https://vajeservices.xyz/stats/onquit', {
+    request('https://api.vajeservices.xyz/stats/onquit', {
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
